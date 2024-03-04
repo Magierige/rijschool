@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::table('form_fields', function (Blueprint $table) {
+            $table->unsignedBigInteger('form_id')->nullable();
+            
+            $table->foreign('form_id')->references('id')->on('forms');
+        });
     }
 
     /**

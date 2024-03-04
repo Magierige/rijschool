@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('form_fields', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('necessary');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

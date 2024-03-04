@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
+            $table->integer('distance');
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->string('license_plate');
+            $table->string('type');
+            $table->string('status');
+            $table->date('apk');
+            $table->integer('kilometers');
+            $table->string('fuel_type');
+            $table->string('image_url');
             $table->timestamps();
         });
     }

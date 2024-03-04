@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('total_time');
+            $table->integer('max_theoretical_exams');
+            $table->integer('max_practical_exams');
+            $table->boolean('has_midterm_exam');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
