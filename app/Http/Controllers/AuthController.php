@@ -15,7 +15,6 @@ class AuthController extends Controller
 
     public function authenticate(Request $request)
     {
-        // Validate the form data
         $request->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -70,6 +69,12 @@ class AuthController extends Controller
         auth()->login($user);
 
         // Redirect to the home page
+        return redirect('/');
+    }
+    // add code for loging out
+    public function logout()
+    {
+        auth()->logout();
         return redirect('/');
     }
 }
