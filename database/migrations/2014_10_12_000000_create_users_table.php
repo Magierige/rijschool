@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('birthdate');
-            $table->string('place');
+            $table->string('street');
+            $table->string('city');
+            $table->string('house_number');
+            $table->string('zip');
+            $table->string('country');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
