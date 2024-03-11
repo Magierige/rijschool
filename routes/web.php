@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,12 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('authentica
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store'])->name('store');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/home', function () {
-    return view('tables');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/construction', function () { return view('construction');})->name('construction');
+
+
+Route::middleware([
+    'auth'
+])->group(function () {
+    Route::get('/tables', function () { return view('tables');})->name('tables');
+    Route::get('/home', function () { return view('dashboard'); })->name('dashboard');
+});

@@ -69,7 +69,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <input type="submit" value="Login kan" class="btn btn-primary btn-user btn-block">
+                                        <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                                     </form>
                                     <hr>
                                     <div class="text-center">

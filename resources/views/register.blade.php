@@ -80,8 +80,8 @@
                                 <!-- Input field for country -->
                                 <div class="form-group">
                                     <select type="number" class="form-control" id="exampleHouseNumber" placeholder="Select Country" name="country">
-                                        <option value="The Netherlands">The Netherlands</option>
-                                        <option value="Germany">Germany</option>
+                                        <option value="NL">The Netherlands</option>
+                                        <option value="DE">Germany</option>
                                     </select>
                                 </div>
                                 <!-- Input fields for city and zip code -->
