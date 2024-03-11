@@ -22,7 +22,7 @@ class AuthController extends Controller
 
         // Attempt to log the user in
         if (auth()->attempt($request->only('email', 'password'))) {
-            return redirect('/');
+            return redirect('/home');
         }
 
         return back()->withErrors([
@@ -40,16 +40,16 @@ class AuthController extends Controller
         //dd($request->all());
         // Validate the form data
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|alpha',
+            'last_name' => 'required|string',
             'birthdate' => 'required|date',
-            'street' => 'required',
-            'city' => 'required',
-            'house_number' => 'required',
-            'zip' => 'required|max:7|min:5',
-            'country' => 'required',
+            'street' => 'required|alpha_dash',
+            'city' => 'required|alpha_dash',
+            'house_number' => 'required|string|max:5',
+            'zip' => 'required|between:5,7',
+            'country' => 'required|in:NL,DE',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8|string'
         ]);
 
         $user = new User();
@@ -69,12 +69,12 @@ class AuthController extends Controller
         auth()->login($user);
 
         // Redirect to the home page
-        return redirect('/');
+        return redirect('/home');
     }
     // add code for loging out
     public function logout()
     {
         auth()->logout();
-        return redirect('/');
+        return redirect('/login');
     }
 }
